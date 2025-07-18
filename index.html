@@ -5,10 +5,10 @@
   <title>Xenia ChatBot Test</title>
 </head>
 <body>
-  <h1>Welcome to Xenia ChatBot Tester</h1>
+  <h1>Trigger a ChatBot Scenario</h1>
   <p>
-    <a href="?chat=xenia">Trigger Xenia Scenario</a><br>
-    <a href="?chat=xeniacloud">Trigger Xenia Cloud (optional test)</a>
+    <a href="?chat=xenia">Launch Xenia Scenario</a><br>
+    <a href="?chat=xeniacloud">Launch Xenia Cloud Scenario</a>
   </p>
 
   <script>
@@ -16,7 +16,7 @@
       const params = new URLSearchParams(window.location.search);
       const chat = params.get("chat");
 
-      if (chat) {
+      if (chat === "xenia" || chat === "xeniacloud") {
         window.OpenWidget.on("ready", function () {
           window.OpenWidget.call("setSessionData", {
             chat: chat,
@@ -28,7 +28,7 @@
     });
   </script>
 
-  <!-- ChatBot.com Embed Code -->
+  <!-- ChatBot.com embed -->
   <script>
     window.__ow = window.__ow || {};
     window.__ow.organizationId = "6d6bb40e-d40c-4cb1-b3bc-edab5cb626b9";
