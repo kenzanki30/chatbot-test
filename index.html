@@ -11,7 +11,6 @@
     <a href="?chat=xeniacloud">Trigger Xenia Cloud (optional test)</a>
   </p>
 
-  <!-- Trigger ChatBot based on URL parameter -->
   <script>
     window.addEventListener("load", function () {
       const params = new URLSearchParams(window.location.search);
@@ -20,7 +19,7 @@
       if (chat) {
         window.OpenWidget.on("ready", function () {
           window.OpenWidget.call("setSessionData", {
-            chat: chat,           // session.chat = "xenia"
+            chat: chat,
             source: "github_test"
           });
           window.OpenWidget.call("open");
@@ -29,7 +28,7 @@
     });
   </script>
 
-  <!-- ChatBot Embed Code -->
+  <!-- ChatBot.com Embed Code -->
   <script>
     window.__ow = window.__ow || {};
     window.__ow.organizationId = "6d6bb40e-d40c-4cb1-b3bc-edab5cb626b9";
@@ -55,10 +54,10 @@
       !n.__ow.asyncInit && e.init(), n.OpenWidget=n.OpenWidget || e
     })(window,document,[].slice);
   </script>
+
   <noscript>
     You need to <a href="https://www.chatbot.com/help/chat-widget/enable-javascript-in-your-browser/" rel="noopener nofollow">enable JavaScript</a> in order to use the AI chatbot tool powered by
     <a href="https://www.chatbot.com/" rel="noopener nofollow" target="_blank">ChatBot</a>
   </noscript>
-
 </body>
 </html>
