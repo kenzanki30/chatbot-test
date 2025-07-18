@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChatBot Test</title>
+</head>
+<body>
+  <h1>Test ChatBot Trigger</h1>
+  <a href="?chat=xeniaiserve">Start Xenia iServe</a> | 
+  <a href="?chat=xeniacloud">Start Xenia Cloud</a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const chat = params.get("chat");
+
+    if (chat) {
+      window.ChatBot.on("ready", function () {
+        window.ChatBot.setSessionData({
+          chat: chat,
+          source: "test_github"
+        });
+        window.ChatBot.open();
+      });
+    }
+  </script>
+
+  <!-- Embed your ChatBot widget script below -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <!-- Replace with your ChatBot embed code -->
+</body>
+</html>
