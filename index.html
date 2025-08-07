@@ -2,18 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Xenia ChatBot Test</title>
+  <title>Xenia ChatBot</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .left {
+      width: 50%;
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left img {
+      height: 60px;
+      margin-bottom: 30px;
+    }
+
+    .left h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .right {
+      width: 50%;
+      background-image: url('c37bf1c6-1458-4e18-a0ca-f26d0051a450.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .chat-widget-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 420px;
+      height: 550px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-  <h1>Trigger Xenia ChatBot Scenario</h1>
-  <p>
-    <a href="?chat=xenia">Open Xenia</a> |
-    <a href="?chat=xeniacloud">Open Xenia Cloud</a>
-  </p>
+  <div class="left">
+    <img src="c37bf1c6-1458-4e18-a0ca-f26d0051a450.png" alt="Xenia Logo" />
+    <h1>Hello!</h1>
+    <p>
+      Welcome to our chat page.<br />
+      Need help? Contact us here for instant support.<br />
+      Our team is ready to assist you online.
+    </p>
+  </div>
+
+  <div class="right">
+    <div class="chat-widget-container" id="chat-container"></div>
+  </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const chat = params.get("chat");
+    const chat = params.get("chat") || "xenia";
 
     window.__ow = window.__ow || {};
     window.__ow.organizationId = "6d6bb40e-d40c-4cb1-b3bc-edab5cb626b9";
@@ -21,7 +81,6 @@
     window.__ow.integration_name = "manual_settings";
     window.__ow.product_name = "chatbot";
 
-    // Wait for widget to initialize before calling methods
     window.OpenWidget = window.OpenWidget || {
       _q: [],
       on: function () {
@@ -32,19 +91,14 @@
       }
     };
 
-    // When widget is ready, set sessionData and open the chat
     window.OpenWidget.on("ready", function () {
-      if (chat === "xenia" || chat === "xeniacloud") {
-        window.OpenWidget.call("setSessionData", {
-          chat: chat,
-          source: "github"
-        });
-
-        window.OpenWidget.call("open");
-      }
+      window.OpenWidget.call("setSessionData", {
+        chat: chat,
+        source: "landing-page"
+      });
+      window.OpenWidget.call("open");
     });
 
-    // Load the widget script
     (function (n, t, c) {
       var e = {
         _q: [],
