@@ -36,23 +36,10 @@
 
     .right {
       width: 50%;
-      background-image: url('c37bf1c6-1458-4e18-a0ca-f26d0051a450.png');
+      background-image: url('c37bf1c6-1458-4e18-a0ca-f26d0051a450.png'); /* Your background image */
       background-size: cover;
       background-position: center;
       position: relative;
-    }
-
-    .chat-widget-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 420px;
-      height: 550px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
     }
   </style>
 </head>
@@ -68,63 +55,55 @@
   </div>
 
   <div class="right">
-    <div class="chat-widget-container" id="chat-container"></div>
+    <!-- The chatbot widget will appear automatically -->
   </div>
 
+  <!-- Start of ChatBot (www.chatbot.com) code -->
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const chat = params.get("chat") || "xenia";
-
     window.__ow = window.__ow || {};
     window.__ow.organizationId = "6d6bb40e-d40c-4cb1-b3bc-edab5cb626b9";
-    window.__ow.template_id = "31bc2425-c28e-45fe-926e-6cfb8fed480a";
+    window.__ow.template_id = "29bcd9a7-95ca-4da7-abcf-5990e135a483";
     window.__ow.integration_name = "manual_settings";
     window.__ow.product_name = "chatbot";
-
-    window.OpenWidget = window.OpenWidget || {
-      _q: [],
-      on: function () {
-        this._q.push(["on", [...arguments]]);
-      },
-      call: function () {
-        this._q.push(["call", [...arguments]]);
-      }
-    };
-
-    window.OpenWidget.on("ready", function () {
-      window.OpenWidget.call("setSessionData", {
-        chat: chat,
-        source: "landing-page"
-      });
-      window.OpenWidget.call("open");
-    });
-
     (function (n, t, c) {
+      function i(n) {
+        return e._h ? e._h.apply(null, n) : e._q.push(n);
+      }
       var e = {
         _q: [],
         _h: null,
         _v: "2.0",
         on: function () {
-          e._q.push(["on", c.call(arguments)]);
+          i(["on", c.call(arguments)])
+        },
+        once: function () {
+          i(["once", c.call(arguments)])
+        },
+        off: function () {
+          i(["off", c.call(arguments)])
+        },
+        get: function () {
+          if (!e._h) throw new Error("[OpenWidget] You can't use getters before load.");
+          return i(["get", c.call(arguments)])
         },
         call: function () {
-          e._q.push(["call", c.call(arguments)]);
+          i(["call", c.call(arguments)])
         },
         init: function () {
           var n = t.createElement("script");
-          n.async = true;
+          n.async = !0;
           n.type = "text/javascript";
           n.src = "https://cdn.openwidget.com/openwidget.js";
-          t.head.appendChild(n);
+          t.head.appendChild(n)
         }
       };
-      !n.__ow.asyncInit && e.init();
-      n.OpenWidget = n.OpenWidget || e;
-    })(window, document, [].slice);
+      !n.__ow.asyncInit && e.init(), n.OpenWidget = n.OpenWidget || e
+    })(window, document, [].slice)
   </script>
-
   <noscript>
-    Please enable JavaScript to use our chatbot powered by <a href="https://chatbot.com" target="_blank">ChatBot</a>
+    You need to <a href="https://www.chatbot.com/help/chat-widget/enable-javascript-in-your-browser/" rel="noopener nofollow">enable JavaScript</a> in order to use the AI chatbot tool powered by
+    <a href="https://www.chatbot.com/" rel="noopener nofollow" target="_blank">ChatBot</a>
   </noscript>
+  <!-- End of ChatBot code -->
 </body>
 </html>
